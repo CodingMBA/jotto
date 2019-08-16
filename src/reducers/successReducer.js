@@ -1,4 +1,8 @@
-const initialState = {};
+import { actionTypes } from '../actions';
+
+const initialState = {
+  success: false
+};
 
 /**
  * @function successReducer
@@ -6,8 +10,10 @@ const initialState = {};
  * @param {object} action - action to be reduced
  * @returns {boolean} - new success state
  */
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, { type }) => {
   switch (type) {
+    case actionTypes.CORRECT_GUESS:
+      return true;
     default:
       return state;
   }
