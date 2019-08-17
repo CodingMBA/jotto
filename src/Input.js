@@ -3,16 +3,31 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Input extends Component {
-  static propTypes = {
-    prop: PropTypes
-  };
-
   render() {
-    return <div />;
+    const contents = this.props.success ? null : (
+      <form className='form-inline'>
+        <input
+          type='text'
+          data-test='input-box'
+          className='mb-2 mx-sm-3'
+          id='word-guess'
+          placeholder='Enter Guess'
+        />
+        <button
+          data-test='submit-button'
+          type='submit'
+          className='btn btn-primary mb-2'>
+          Submit
+        </button>
+      </form>
+    );
+    return <div data-test='component-input'>{contents}</div>;
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = ({ success }) => {
+  return { success };
+};
 
 const mapDispatchToProps = {};
 
