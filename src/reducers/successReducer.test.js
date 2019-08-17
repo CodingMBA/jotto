@@ -3,7 +3,7 @@ import successReducer from './successReducer.js';
 
 it('returns default initial state of `false` when no action passed', () => {
   const newState = successReducer(undefined, {});
-  expect(newState).toEqual({ success: false });
+  expect(newState).toEqual(false);
 });
 
 it('returns state of `true` when receiving action of type `CORRECT_GUESS`', () => {
